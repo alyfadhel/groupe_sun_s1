@@ -16,8 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return   MaterialApp(
       debugShowCheckedModeBanner: false,
-      darkTheme: ThemeData.dark(),
-      home: const CounterScreen(),
+      home: const MessengerScreen(),
     );
   }
 }

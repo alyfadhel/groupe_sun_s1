@@ -16,7 +16,7 @@ class MessengerScreen extends StatelessWidget {
           statusBarIconBrightness: Brightness.dark,
         ),
         titleSpacing: 20,
-        toolbarHeight: 70,
+        toolbarHeight: 80,
         leadingWidth: 50,
         title: Row(
           children: [
