@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:group_sun_s1/messenger_model.dart';
+import 'package:group_sun_s1/features/modules/messenger/data/model/messenger_model.dart';
 
 class BuildChatItem extends StatelessWidget {
   final MessengerModel model;
@@ -24,7 +24,7 @@ class BuildChatItem extends StatelessWidget {
                     model.image,
                   ),
                 ),
-                Padding(
+                const Padding(
                   padding: EdgeInsetsDirectional.only(
                     start: 5,
                     top: 5,

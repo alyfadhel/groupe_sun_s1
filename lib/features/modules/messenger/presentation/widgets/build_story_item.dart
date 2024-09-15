@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:group_sun_s1/messenger_model.dart';
+import 'package:group_sun_s1/features/modules/messenger/data/model/messenger_model.dart';
 
 class BuildStoryItem extends StatelessWidget {
   final MessengerModel model;

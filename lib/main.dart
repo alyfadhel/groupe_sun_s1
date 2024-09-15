@@ -1,11 +1,18 @@
+import 'package:device_preview/device_preview.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:group_sun_s1/counter_screen.dart';
-import 'package:group_sun_s1/home_screen.dart';
-import 'package:group_sun_s1/login_screen.dart';
-import 'package:group_sun_s1/messenger_screen.dart';
+import 'package:group_sun_s1/features/modules/bmi/bmi_calculator.dart';
+import 'package:group_sun_s1/core/share/themes/themes.dart';
+import 'package:group_sun_s1/features/modules/login/login_screen.dart';
+
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    DevicePreview(
+      enabled: !kReleaseMode,
+      builder: (context) => const MyApp(), // Wrap your app
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -14,9 +21,12 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return   MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const MessengerScreen(),
+      theme: getLightTheme(),
+      darkTheme: getDarkTheme(),
+      themeMode: ThemeMode.light,
+      home: const LoginScreen(),
     );
   }
 }
