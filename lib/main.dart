@@ -16,7 +16,7 @@ import 'package:group_sun_s1/features/modules/login/login_screen.dart';
 
 void main()
 {
-  DioHelper.init();
+  NewsDioHelper.init();
   Bloc.observer = MyBlocObserver();
   runApp(
     // DevicePreview(

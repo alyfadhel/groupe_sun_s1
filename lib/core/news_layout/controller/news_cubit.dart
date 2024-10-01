@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:group_sun_s1/core/news_layout/controller/news_state.dart';
 import 'package:group_sun_s1/core/share/network/remote/dio_helper.dart';
-import 'package:group_sun_s1/features/news/business/business_screen.dart';
-import 'package:group_sun_s1/features/news/science/science_screen.dart';
-import 'package:group_sun_s1/features/news/sports/sports_screen.dart';
+import 'package:group_sun_s1/features/modules/news/business/business_screen.dart';
+import 'package:group_sun_s1/features/modules/news/science/science_screen.dart';
+import 'package:group_sun_s1/features/modules/news/sports/sports_screen.dart';
+
 
 class NewsCubit extends Cubit<NewsStates> {
   NewsCubit() : super(NewsInitialState());
@@ -56,7 +57,7 @@ class NewsCubit extends Cubit<NewsStates> {
   void getBusiness() {
     emit(NewsGetBusinessLoadingState());
 
-    DioHelper.getData(
+    NewsDioHelper.getData(
       url: 'v2/top-headlines',
       query: {
         'apiKey': 'cfaef72ddf46493fbea1e07aa50cd58b',
@@ -80,7 +81,7 @@ class NewsCubit extends Cubit<NewsStates> {
   void getSpots() {
     emit(NewsGetSportsLoadingState());
 
-    DioHelper.getData(
+    NewsDioHelper.getData(
       url: 'v2/top-headlines',
       query: {
         'apiKey': 'cfaef72ddf46493fbea1e07aa50cd58b',
@@ -104,7 +105,7 @@ class NewsCubit extends Cubit<NewsStates> {
   void getScience() {
     emit(NewsGetScienceLoadingState());
 
-    DioHelper.getData(
+    NewsDioHelper.getData(
       url: 'v2/top-headlines',
       query: {
         'apiKey': 'cfaef72ddf46493fbea1e07aa50cd58b',
@@ -128,7 +129,7 @@ class NewsCubit extends Cubit<NewsStates> {
   void getSearch({required String text}) {
     emit(NewsGetSearchLoadingState());
 
-    DioHelper.getData(
+    NewsDioHelper.getData(
       url: 'v2/everything',
       query: {
         'apiKey': 'cfaef72ddf46493fbea1e07aa50cd58b',

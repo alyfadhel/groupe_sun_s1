@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:group_sun_s1/core/news_layout/controller/news_cubit.dart';
 import 'package:group_sun_s1/core/news_layout/controller/news_state.dart';
-import 'package:group_sun_s1/features/news/search/search_screen.dart';
+import 'package:group_sun_s1/features/modules/news/search/search_screen.dart';
+
 
 class NewsLayout extends StatelessWidget {
   const NewsLayout({super.key});
