@@ -14,6 +14,7 @@ class BuildItems extends StatelessWidget {
       ),
       child: Row(
         children: [
+          if(model['urlToImage']!=null)
           ClipRRect(
             borderRadius: BorderRadius.circular(
               20.0,

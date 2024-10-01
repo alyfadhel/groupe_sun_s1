@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:group_sun_s1/core/share/widgets/news_widgets/build_items.dart';
 
 class BuildNewsItem extends StatelessWidget {
-  final list;
+  final List list;
   final bool isLoading;
 
   const BuildNewsItem({

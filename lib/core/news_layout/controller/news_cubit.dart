@@ -17,17 +17,17 @@ class NewsCubit extends Cubit<NewsStates> {
         icon: Icon(
           Icons.business_sharp,
         ),
-        label: 'New'),
+        label: 'Business'),
     const BottomNavigationBarItem(
         icon: Icon(
           Icons.sports_baseball_outlined,
         ),
-        label: 'Done'),
+        label: 'Sports'),
     const BottomNavigationBarItem(
         icon: Icon(
           Icons.science,
         ),
-        label: 'Archive'),
+        label: 'Science'),
   ];
   List<Widget> screens = [
     const BusinessScreen(),
