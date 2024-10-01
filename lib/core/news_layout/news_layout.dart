@@ -36,9 +36,6 @@ class NewsLayout extends StatelessWidget {
           ),
           bottomNavigationBar: BottomNavigationBar(
             items: cubit.items,
-            selectedItemColor: Colors.blue,
-            unselectedItemColor: Colors.grey,
-            type: BottomNavigationBarType.fixed,
             currentIndex: cubit.currentIndex,
             onTap: (index) {
               cubit.changeBottomNav(index);

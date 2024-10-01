@@ -15,17 +15,17 @@ class NewsCubit extends Cubit<NewsStates> {
   List<BottomNavigationBarItem> items = [
     const BottomNavigationBarItem(
         icon: Icon(
-          Icons.menu,
+          Icons.business_sharp,
         ),
         label: 'New'),
     const BottomNavigationBarItem(
         icon: Icon(
-          Icons.check_box,
+          Icons.sports_baseball_outlined,
         ),
         label: 'Done'),
     const BottomNavigationBarItem(
         icon: Icon(
-          Icons.archive,
+          Icons.science,
         ),
         label: 'Archive'),
   ];

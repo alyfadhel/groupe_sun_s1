@@ -12,6 +12,7 @@ ThemeData getLightTheme()
       ),
       systemOverlayStyle: SystemUiOverlayStyle(
         statusBarIconBrightness: Brightness.dark,
+        statusBarColor: Colors.white,
       ),
       backgroundColor: Colors.white,
       titleTextStyle: TextStyle(
@@ -23,24 +24,37 @@ ThemeData getLightTheme()
         color: Colors.black,
       ),
     ),
+    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+      backgroundColor: Colors.white,
+      selectedItemColor: Colors.blue,
+      unselectedItemColor: Colors.grey,
+      type: BottomNavigationBarType.fixed,
+      elevation: 0.0,
+    ),
+    progressIndicatorTheme: const ProgressIndicatorThemeData(
+      color: Colors.blue,
+    ),
     iconTheme: const IconThemeData(
-      color: Colors.white,
-      size: 100.0,
+      color: Colors.black,
     ),
     textTheme: const TextTheme(
       headlineLarge: TextStyle(
-        fontSize: 50.0,
+        fontSize: 30.0,
         fontWeight: FontWeight.bold,
-        color: Colors.white,
+        color: Colors.black,
       ),
       titleLarge: TextStyle(
-        fontSize: 18.0,
+        fontSize: 20.0,
         fontWeight: FontWeight.bold,
-        color: Colors.white,
+        color: Colors.black,
       ),
       titleMedium: TextStyle(
-          fontSize: 14.0,
-          color: Colors.white
+        fontSize: 16.0,
+        color: Colors.black,
+      ),
+      titleSmall: TextStyle(
+        fontSize: 14.0,
+        color: Colors.grey,
       ),
     ),
   );
@@ -53,10 +67,11 @@ ThemeData getDarkTheme()
     appBarTheme:  const AppBarTheme(
       iconTheme: IconThemeData(
         color: Colors.white,
-         size: 25.0,
+        size: 25.0,
       ),
       systemOverlayStyle: SystemUiOverlayStyle(
-        statusBarIconBrightness: Brightness.light,
+          statusBarIconBrightness: Brightness.light,
+          statusBarColor: Colors.black
       ),
       backgroundColor: Colors.black,
       titleTextStyle: TextStyle(
@@ -68,24 +83,37 @@ ThemeData getDarkTheme()
         color: Colors.white,
       ),
     ),
+    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+      backgroundColor: Colors.black,
+      selectedItemColor: Colors.deepOrange,
+      unselectedItemColor: Colors.grey,
+      type: BottomNavigationBarType.fixed,
+      elevation: 0.0,
+    ),
+    progressIndicatorTheme: const ProgressIndicatorThemeData(
+      color: Colors.deepOrange,
+    ),
     iconTheme: const IconThemeData(
       color: Colors.white,
-      size: 100.0,
     ),
-    textTheme: TextTheme(
-      headlineLarge: const TextStyle(
-        fontSize: 50.0,
+    textTheme: const TextTheme(
+      headlineLarge: TextStyle(
+        fontSize: 30.0,
         fontWeight: FontWeight.bold,
         color: Colors.white,
       ),
       titleLarge: TextStyle(
-        fontSize: 18.0,
+        fontSize: 20.0,
         fontWeight: FontWeight.bold,
-        color: Colors.grey[300],
+        color: Colors.white,
       ),
       titleMedium: TextStyle(
+        fontSize: 16.0,
+        color: Colors.black,
+      ),
+      titleSmall: TextStyle(
         fontSize: 14.0,
-        color: Colors.grey[300]
+        color: Colors.grey,
       ),
     ),
   );

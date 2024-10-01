@@ -40,12 +40,12 @@ class MyApp extends StatelessWidget {
 
         },
         builder: (context, state) {
-          return const MaterialApp(
+          return  MaterialApp(
             debugShowCheckedModeBanner: false,
-            // theme: getLightTheme(),
-            // darkTheme: getDarkTheme(),
-            // themeMode: ThemeMode.dark,
-            home: NewsLayout(),
+            theme: getLightTheme(),
+            darkTheme: getDarkTheme(),
+            themeMode: ThemeMode.light,
+            home: const NewsLayout(),
           );
         },
       ),
