@@ -1,4 +1,3 @@
-import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:group_sun_s1/core/layout/controller/cubit/state.dart';
@@ -6,7 +5,6 @@ import 'package:group_sun_s1/features/modules/todo/archive/archive_screen.dart';
 import 'package:group_sun_s1/features/modules/todo/done/done_screen.dart';
 import 'package:group_sun_s1/features/modules/todo/new/new_screen.dart';
 import 'package:sqflite/sqflite.dart';
-import 'package:sqflite/sqlite_api.dart';
 import 'package:path/path.dart' as p;
 
 class AppCubit extends Cubit<AppStates> {
