@@ -24,7 +24,7 @@ class MyButton extends StatelessWidget {
       width: width,
       decoration: BoxDecoration(
         color: background,
-        borderRadius: BorderRadius.circular(15.0,),
+        borderRadius: BorderRadius.circular(10.0,),
       ),
       child: MaterialButton(
         onPressed: onPressed,
