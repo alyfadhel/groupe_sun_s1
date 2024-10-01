@@ -29,7 +29,6 @@ class NewsLayout extends StatelessWidget {
                 },
                 icon: const Icon(
                   Icons.search,
-                  color: Colors.black,
                   size: 30.0,
                 ),
               ),
