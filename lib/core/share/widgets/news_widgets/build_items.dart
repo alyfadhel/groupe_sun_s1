@@ -28,7 +28,9 @@ class BuildItems extends StatelessWidget {
               placeholder: (context, url) => Shimmer.fromColors(
                 baseColor: Colors.grey,
                 highlightColor: Colors.white,
-                child: Container(),
+                child: Container(
+                  color: Colors.black,
+                ),
               ),
               errorWidget: (context, url, error) => const Icon(
                 Icons.error_outline,
