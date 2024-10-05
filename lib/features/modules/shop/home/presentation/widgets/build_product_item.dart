@@ -109,7 +109,7 @@ class BuildProductItem extends StatelessWidget {
             shrinkWrap: true,
             crossAxisSpacing: 1,
             mainAxisSpacing: 1,
-            childAspectRatio: 1 / 1.5,
+            childAspectRatio: 1 / 1.7,
             children: List.generate(
               model.data.products.length,
               (index) => buildProductItem(
