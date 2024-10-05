@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:group_sun_s1/core/share/network/local/cache_helper.dart';
 import 'package:group_sun_s1/core/share/themes/cubit/cubit.dart';
 import 'package:group_sun_s1/core/share/themes/cubit/state.dart';
+import 'package:group_sun_s1/core/shop_layout/controller/cubit/cubit.dart';
+import 'package:group_sun_s1/core/shop_layout/controller/cubit/state.dart';
 import 'package:group_sun_s1/features/modules/shop/users/presentation/screens/shop_login_screen.dart';
 
 class ShopLayout extends StatelessWidget {
@@ -10,11 +12,13 @@ class ShopLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<ThemeCubit, ThemeStates>(
+    return BlocConsumer<ShopCubit, ShopStates>(
       listener: (context, state) {},
       builder: (context, state) {
+        var cubit = ShopCubit.get(context);
         return Scaffold(
           appBar: AppBar(
+            title: Text(cubit.titles[cubit.currentIndex]),
             actions: [
               IconButton(
                 onPressed: () {
@@ -26,29 +30,15 @@ class ShopLayout extends StatelessWidget {
               ),
             ],
           ),
-          body: Column(
-            children: [
-              OutlinedButton(
-                onPressed: () {
-                  CacheHelper.removeData(key: 'token').then(
-                    (value) {
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const ShopLoginScreen(),
-                        ),
-                      );
-                    },
-                  );
-                },
-                style: const ButtonStyle(
-                    backgroundColor: WidgetStatePropertyAll(
-                  Colors.red,
-                )),
-                child: Text('LogOut'),
-              ),
-            ],
+          bottomNavigationBar: BottomNavigationBar(
+            items: cubit.items,
+            currentIndex: cubit.currentIndex,
+            onTap: (index)
+            {
+              cubit.changeBottomNav(index);
+            },
           ),
+          body: cubit.screens[cubit.currentIndex],
         );
       },
     );

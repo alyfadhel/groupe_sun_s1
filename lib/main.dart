@@ -10,6 +10,7 @@ import 'package:group_sun_s1/core/share/observer.dart';
 import 'package:group_sun_s1/core/share/themes/cubit/cubit.dart';
 import 'package:group_sun_s1/core/share/themes/cubit/state.dart';
 import 'package:group_sun_s1/core/share/themes/themes.dart';
+import 'package:group_sun_s1/core/shop_layout/controller/cubit/cubit.dart';
 import 'package:group_sun_s1/core/shop_layout/shop_layout.dart';
 import 'package:group_sun_s1/features/modules/login/login_screen.dart';
 import 'package:group_sun_s1/features/modules/shop/on_boarding/presentation/screens/on_boarding_screen.dart';
@@ -59,6 +60,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
+        BlocProvider(create: (context) => ShopCubit()..getHomeData()..getCategoriesHome(),),
         BlocProvider(
         create: (BuildContext context)=> NewsCubit()..getBusiness()..getSpots()..getScience(),),
         BlocProvider(create: (context) => ThemeCubit()..changeThemeMode(
