@@ -157,17 +157,23 @@ Widget buildProductItem(ProductsModel model, context) => Padding(
                     ),
                   ),
                 ),
-                Container(
-                  decoration: const BoxDecoration(
-                    color: Colors.red,
+                if (model.discount != 0)
+                  Container(
+                    decoration: const BoxDecoration(
+                      color: Colors.red,
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 10.0,
+                      ),
+                      child: Text(
+                        'DISCOUNT',
+                        style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                              color: Colors.white,
+                            ),
+                      ),
+                    ),
                   ),
-                  child: Text(
-                    'DISCOUNT',
-                    style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                          color: Colors.white,
-                        ),
-                  ),
-                ),
               ],
             ),
           ),
@@ -191,11 +197,29 @@ Widget buildProductItem(ProductsModel model, context) => Padding(
               const SizedBox(
                 width: 10.0,
               ),
-              Text(
-                model.oldPrice.round().toString(),
-                style: Theme.of(context).textTheme.titleSmall!.copyWith(
+              if (model.discount != 0)
+                Text(
+                  model.oldPrice.round().toString(),
+                  style: Theme.of(context).textTheme.titleSmall!.copyWith(
                       color: Colors.red,
-                    ),
+                      decoration: TextDecoration.lineThrough,
+                      decorationColor: Colors.red,
+                      decorationThickness: 2),
+                ),
+              const Spacer(),
+              IconButton(
+                onPressed: () {
+                  ShopCubit.get(context).getChangeFavorites(model.id);
+                },
+                icon: CircleAvatar(
+                  radius: 16.0,
+                  backgroundColor: ShopCubit.get(context).favorites[model.id] == true? Colors.blue : Colors.grey,
+                  child: const Icon(
+                    Icons.favorite_border,
+                    size: 16.0,
+                    color: Colors.white,
+                  ),
+                ),
               ),
             ],
           ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:group_sun_s1/core/news_layout/controller/news_cubit.dart';
 import 'package:group_sun_s1/core/news_layout/controller/news_state.dart';
@@ -16,73 +17,85 @@ import 'package:group_sun_s1/features/modules/login/login_screen.dart';
 import 'package:group_sun_s1/features/modules/shop/on_boarding/presentation/screens/on_boarding_screen.dart';
 import 'package:group_sun_s1/features/modules/shop/users/presentation/screens/shop_login_screen.dart';
 
-void main()async
-{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  // SystemChrome.setPreferredOrientations(
+  //   [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown],
+  // );
   await CacheHelper.init();
   DioHelper.init();
   NewsDioHelper.init();
   Bloc.observer = MyBlocObserver();
-  bool?onBoarding = CacheHelper.getData(key: 'onBoarding');
+  bool? onBoarding = CacheHelper.getData(key: 'onBoarding');
   print(onBoarding);
   token = CacheHelper.getData(key: 'token');
   print(token.toString());
-  bool?isDark = CacheHelper.getData(key: 'isDark');
+  bool? isDark = CacheHelper.getData(key: 'isDark');
   Widget widget;
 
-  if(onBoarding != null){
-    if(token != null){
+  if (onBoarding != null) {
+    if (token != null) {
       widget = const ShopLayout();
-    }else{
+    } else {
       widget = const ShopLoginScreen();
     }
-  }else{
+  } else {
     widget = const OnBoardingScreen();
   }
   runApp(
-    // DevicePreview(
-    //   enabled: !kReleaseMode,
-    //   builder: (context) => const MyApp(), // Wrap your app
-    // ),
-     MyApp(
-      startWidget: widget,
-     isDark: isDark,
-    )
-  );
+      // DevicePreview(
+      //   enabled: !kReleaseMode,
+      //   builder: (context) => const MyApp(), // Wrap your app
+      // ),
+      MyApp(
+    startWidget: widget,
+    isDark: isDark,
+  ));
 }
 
 class MyApp extends StatelessWidget {
   final Widget startWidget;
   final bool? isDark;
+
   const MyApp({super.key, required this.startWidget, required this.isDark});
 
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (context) => ShopCubit()..getHomeData()..getCategoriesHome(),),
         BlocProvider(
-        create: (BuildContext context)=> NewsCubit()..getBusiness()..getSpots()..getScience(),),
-        BlocProvider(create: (context) => ThemeCubit()..changeThemeMode(
-          fromShared: isDark,
-        ),)
-      ],
-      child: BlocConsumer<ThemeCubit,ThemeStates>(
-          listener: (context, state) {
-
-          },
-          builder: (context, state) {
-            return MaterialApp(
-              debugShowCheckedModeBanner: false,
-              theme: getLightTheme(),
-              darkTheme: getDarkTheme(),
-              themeMode: ThemeCubit.get(context).isDark ? ThemeMode.light : ThemeMode.dark,
-              home: startWidget,
-            );
-          },
+          create: (context) => ShopCubit()
+            ..getHomeData()
+            ..getCategoriesHome()
+            ..getFavorites(),
         ),
+        BlocProvider(
+          create: (BuildContext context) => NewsCubit()
+            ..getBusiness()
+            ..getSpots()
+            ..getScience(),
+        ),
+        BlocProvider(
+          create: (context) => ThemeCubit()
+            ..changeThemeMode(
+              fromShared: isDark,
+            ),
+        )
+      ],
+      child: BlocConsumer<ThemeCubit, ThemeStates>(
+        listener: (context, state) {},
+        builder: (context, state) {
+          return MaterialApp(
+            debugShowCheckedModeBanner: false,
+            theme: getLightTheme(),
+            darkTheme: getDarkTheme(),
+            themeMode: ThemeCubit.get(context).isDark
+                ? ThemeMode.light
+                : ThemeMode.dark,
+            home: startWidget,
+          );
+        },
+      ),
     );
   }
 }
-
-
