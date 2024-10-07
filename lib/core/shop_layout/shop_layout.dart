@@ -24,7 +24,7 @@ class ShopLayout extends StatelessWidget {
                 onPressed: () {
                   ThemeCubit.get(context).changeThemeMode();
                 },
-                icon: Icon(
+                icon: const Icon(
                   Icons.brightness_4_outlined,
                 ),
               ),
