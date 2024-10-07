@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:group_sun_s1/core/share/widgets/toast.dart';
 import 'package:group_sun_s1/core/shop_layout/controller/cubit/cubit.dart';
 import 'package:group_sun_s1/core/shop_layout/controller/cubit/state.dart';
-import 'package:group_sun_s1/features/modules/shop/home/presentation/widgets/build_product_item.dart';
+import 'package:group_sun_s1/features/modules/shop/home/presentation/widgets/build_item.dart';
 
 class ShopHomeScreen extends StatelessWidget {
   const ShopHomeScreen({super.key});
@@ -31,7 +31,7 @@ class ShopHomeScreen extends StatelessWidget {
         var cubit = ShopCubit.get(context);
         return ConditionalBuilder(
           condition: cubit.homeModel != null && cubit.categoriesModel != null,
-          builder: (context) => BuildProductItem(
+          builder: (context) => BuildItem(
             model: cubit.homeModel!,
           ),
           fallback: (context) => const Center(
